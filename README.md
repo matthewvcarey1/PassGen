@@ -9,3 +9,5 @@ I was motivated as I was running out imagination for this form of password conte
 The app shows a list of possible passwords and you can pick one and copy it to your clipboard for use and adding to your password manager.
 
 ![screen shot](passgen.png "The app running")
+
+This is an AndroidStudio Project, so you should probably use it to edit the code.
