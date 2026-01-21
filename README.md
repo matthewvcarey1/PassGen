@@ -12,9 +12,11 @@ The app shows a list of possible passwords and you can pick one and copy it to y
 
 This is an AndroidStudio Project, so you should probably use it to edit the code.
 
-Licence GNU Public Licence 3 https://www.gnu.org/licenses/gpl-3.0.en.html
+### Licence
+  
+GNU Public Licence 3 https://www.gnu.org/licenses/gpl-3.0.en.html
 
-Privacy Policy for PassGen
+### Privacy Policy for PassGen
 
 1. Data Collection: PassGen does not collect, store, or transmit any personal user data.
 
