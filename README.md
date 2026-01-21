@@ -1,6 +1,6 @@
 # An Android APK to generate possible passwords
 
-This is a very simple app that uses the subset of words from Linux file /usr/share/dict/words that are between 4 and 6 characters long and consist of alphabetical characters.
+This is a very simple app that uses the subset of words from the Linux file /usr/share/dict/words (which is from the GPL3 package dictionaries-common) that are between 4 and 6 characters long and consist of alphabetical characters.
 
 It uses these words to generate combinations of the words randomly that could be memorable.
 
