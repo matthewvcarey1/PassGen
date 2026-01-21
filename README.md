@@ -14,3 +14,12 @@ This is an AndroidStudio Project, so you should probably use it to edit the code
 
 Licence GNU Public Licence 3 https://www.gnu.org/licenses/gpl-3.0.en.html
 
+Privacy Policy for PassGen
+
+1. Data Collection: PassGen does not collect, store, or transmit any personal user data.
+
+1. Offline Usage: All password generation happens locally on your device.
+
+1. Permissions: The app uses no special permissions (No Internet, No Contacts, No Location).
+
+1. Third Parties: No data is shared with third parties.
