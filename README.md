@@ -14,6 +14,8 @@ The app shows a list of possible passwords and you can pick one and copy it to y
 
 This is an AndroidStudio Project, so you should probably use it to edit the code.
 
+The code is in Kotlin, and it uses Gradle to manage dependencies.
+
 In the project folder, this is the command used populate the word list under Linux:
 
     grep -E '^[a-z|A-Z]{4,6}$' /usr/share/dict/words > src/main/resources/words.txt
