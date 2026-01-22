@@ -66,6 +66,8 @@ class MainActivity : ComponentActivity() {
 fun PasswordGenScreen(generator: PasswordGenerator) {
     // State management
     val configuration = LocalConfiguration.current
+    val screenWidth = configuration.screenWidthDp
+    val itemsToShow = if (screenWidth >= 600) 14 else 7
     val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     var wordCount by rememberSaveable { mutableStateOf(3f) }
     var includeNumber by rememberSaveable { mutableStateOf(false) }
@@ -81,7 +83,7 @@ fun PasswordGenScreen(generator: PasswordGenerator) {
 
     val refreshList: () -> Unit = {
         passwords.clear()
-        repeat(7) {
+        repeat(itemsToShow) {
             val newPass = generator.generate(wordCount.toInt(), includeNumber)
             passwords.add(newPass) // .add returns Boolean, but the lambda result is ignored now
         }
