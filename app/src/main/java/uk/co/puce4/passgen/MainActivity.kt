@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 fun PasswordGenScreen(generator: PasswordGenerator) {
     // State management
     val configuration = LocalConfiguration.current
-    val screenWidth = configuration.screenWidthDp
+    val screenWidth = configuration.smallestScreenWidthDp
     val itemsToShow = if (screenWidth >= 600) 14 else 7
     val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     var wordCount by rememberSaveable { mutableStateOf(3f) }
