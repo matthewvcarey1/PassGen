@@ -308,7 +308,7 @@ fun SettingsCard(
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(checked = includeNumber, onCheckedChange = onNumChange)
-                Text("Append digit (0-99)")
+                Text("Append digits (0-99)")
             }
         }
     }
