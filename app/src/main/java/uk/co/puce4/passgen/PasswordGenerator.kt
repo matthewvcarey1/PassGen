@@ -7,14 +7,14 @@ class PasswordGenerator(private val dictionary: List<String>) {
 
     fun hasWords(): Boolean = dictionary.isNotEmpty()
 
-    fun generate(wordCount: Int, includeNumber: Boolean): String {
+    fun generate(wordCount: Int, includeNumber: Boolean, separator: String): String {
         if (dictionary.isEmpty()) return "Error: No words"
 
         val words = (1..wordCount).map {
             dictionary[random.nextInt(dictionary.size)]
         }
 
-        val base = words.joinToString("-")
-        return if (includeNumber) "$base-${random.nextInt(10)}" else base
+        val base = words.joinToString(separator)
+        return if (includeNumber) "$base$separator${random.nextInt(100)}" else base
     }
 }

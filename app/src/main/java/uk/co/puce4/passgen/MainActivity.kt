@@ -71,6 +71,7 @@ fun PasswordGenScreen(generator: PasswordGenerator) {
     val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     var wordCount by rememberSaveable { mutableStateOf(3f) }
     var includeNumber by rememberSaveable { mutableStateOf(false) }
+    var separator by rememberSaveable { mutableStateOf("-") }
 
     var isDarkMode by remember { mutableStateOf(true) } // Manual toggle state
 
@@ -84,7 +85,7 @@ fun PasswordGenScreen(generator: PasswordGenerator) {
     val refreshList: () -> Unit = {
         passwords.clear()
         repeat(itemsToShow) {
-            val newPass = generator.generate(wordCount.toInt(), includeNumber)
+            val newPass = generator.generate(wordCount.toInt(), includeNumber, separator)
             passwords.add(newPass) // .add returns Boolean, but the lambda result is ignored now
         }
     }
@@ -124,12 +125,17 @@ fun PasswordGenScreen(generator: PasswordGenerator) {
                                 SettingsCard(
                                     wordCount,
                                     includeNumber,
+                                    separator,
                                     {
                                         newValue -> wordCount = newValue
                                         refreshList()
                                     },
                                     {
                                         newValue -> includeNumber = newValue
+                                        refreshList()
+                                    },
+                                    {
+                                        newValue -> separator = newValue
                                         refreshList()
                                     }
                                 )
@@ -156,13 +162,17 @@ fun PasswordGenScreen(generator: PasswordGenerator) {
                             Spacer(modifier = Modifier.height(16.dp))
                             SettingsCard(
                                 wordCount,
-                                includeNumber,
+                                includeNumber, separator,
                                 {
                                     newValue -> wordCount = newValue
                                     refreshList()
                                 },
                                 {
                                     newValue -> includeNumber = newValue
+                                    refreshList()
+                                },
+                                {
+                                    newValue -> separator = newValue
                                     refreshList()
                                 }
                             )
@@ -265,9 +275,13 @@ fun PasswordListArea(
 fun SettingsCard(
     wordCount: Float,
     includeNumber: Boolean,
+    separator: String,
     onCountChange: (Float) -> Unit,
-    onNumChange: (Boolean) -> Unit
+    onNumChange: (Boolean) -> Unit,
+    onSeparatorChange: (String) -> Unit
 ) {
+    val separators = listOf("-", ".", "_", "/", "")
+    val labels = listOf("-", ".", "_", "/", "None")
     ElevatedCard(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text("Complexity Settings", style = MaterialTheme.typography.titleMedium)
@@ -279,9 +293,22 @@ fun SettingsCard(
                 valueRange = 2f..6f,
                 steps = 3
             )
+            Text("Separator", style = MaterialTheme.typography.bodyMedium)
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                separators.forEachIndexed { index, s ->
+                    FilterChip(
+                        selected = separator == s,
+                        onClick = { onSeparatorChange(s) },
+                        label = { Text(labels[index]) }
+                    )
+                }
+            }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(checked = includeNumber, onCheckedChange = onNumChange)
-                Text("Append digit (0-9)")
+                Text("Append digit (0-99)")
             }
         }
     }
