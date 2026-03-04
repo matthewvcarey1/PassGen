@@ -280,8 +280,8 @@ fun SettingsCard(
     onNumChange: (Boolean) -> Unit,
     onSeparatorChange: (String) -> Unit
 ) {
-    val separators = listOf("-", ".", "_", "/", "")
-    val labels = listOf("-", ".", "_", "/", "None")
+    val separators = listOf("-", ".", "_", "/", " ", "")
+    val labels = listOf("-", ".", "_", "/", "Space", "None")
     ElevatedCard(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text("Complexity Settings", style = MaterialTheme.typography.titleMedium)
@@ -295,8 +295,8 @@ fun SettingsCard(
             )
             Text("Separator", style = MaterialTheme.typography.bodyMedium)
             Row(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
+                horizontalArrangement = Arrangement.spacedBy(1.dp)
             ) {
                 separators.forEachIndexed { index, s ->
                     FilterChip(
