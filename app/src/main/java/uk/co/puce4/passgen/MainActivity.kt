@@ -119,7 +119,7 @@ fun PasswordGenScreen(generator: PasswordGenerator) {
                             // Column 1: Settings
                             Column(
                                 modifier = Modifier
-                                    .weight(0.4f)
+                                    .weight(0.5f)
                                     .verticalScroll(rememberScrollState()) // THIS IS OK
                             ) {
                                 SettingsCard(
@@ -280,8 +280,8 @@ fun SettingsCard(
     onNumChange: (Boolean) -> Unit,
     onSeparatorChange: (String) -> Unit
 ) {
-    val separators = listOf("-", ".", "_", "/", " ", "")
-    val labels = listOf("-", ".", "_", "/", "Space", "None")
+    val separators = listOf("-", ".", "_", "/", " ")
+    val labels = listOf("-", ".", "_", "/", "Space")
     ElevatedCard(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text("Complexity Settings", style = MaterialTheme.typography.titleMedium)
@@ -295,8 +295,8 @@ fun SettingsCard(
             )
             Text("Separator", style = MaterialTheme.typography.bodyMedium)
             Row(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
-                horizontalArrangement = Arrangement.spacedBy(1.dp)
+                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 separators.forEachIndexed { index, s ->
                     FilterChip(
