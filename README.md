@@ -6,6 +6,8 @@ It uses these words to generate combinations of the words randomly that could be
 
 I was motivated as I was running out imagination for this form of password content. I noticed that in one place that I had worked, that the password to an important resource was actually the What 3 Words of the business location.
 
+This app generates passwords that could be memorable, but do not relate to your experience or life, so could not so easily be guessed by someone who knew you.
+
 The app shows a list of possible passwords and you can pick one and copy it to your clipboard for use and adding to your password manager.
 
 ![screen shot](passgen.png "The app running")
